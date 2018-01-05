@@ -1,3 +1,3 @@
 function ukryjIks() {
-    document.getElementById("kasownik").style.display = "none";
+    document.getElementById("kasownik").style.display = "hidden";
 }
