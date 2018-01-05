@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+
+    <style>
+
+
+        #bar input {
+            color: transparent;
+            text-shadow: 0 0 0 #000;
+        }
+
+        #bar input:focus {
+            outline: none;
+        }
+
+        .divTimeSetterContainer {
+            /*margin: 5px;*/
+            /*float: left;*/
+            /*position: relative;*/
+            /*cursor: default;*/
+        }
+
+        .divTimeSetterContainer .timeValueBorder {
+            /*float: left;*/
+            width: 80px;
+            background-color: #ffffff;
+            /*background-color: red;*/
+            /*border: 1px solid #ffffff;*/
+            /*border-radius: 3px;*/
+            height: 20px;
+            cursor: default;
+        }
+
+        .divTimeSetterContainer input.timePart {
+            /*float: left;*/
+            margin-top: 1px;
+            text-align: center;
+            height: 15px;
+            border: none;
+            background-color: #ffffff;
+            /*border: 1px solid #85ffba;*/
+            /*font-size: 1.05em;*/
+            /*font-weight: bold;*/
+            /*border-radius: 3px;*/
+            padding: 0;
+            cursor: default;
+            outline: none;
+        }
+
+        .divTimeSetterContainer input.hours {
+            width: 19px;
+        }
+
+
+    </style>
+
+
+</head>
+
+<body bgcolor="#6C9B63">
+
+<center>
+
+    <h1>wprowadzanie czasu wzorowane na przeglądarce Chrome</h1>
+    <br>
+    <br>
+    oryginalna kontrolka <br>
+    <br>
+    <input id="time" type="time">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <input type="text" placeholder="pole 1">
+    <br>
+    <br>
+    <br>
+    kontrolka
+    <br>
+    <br>
+    <div class="bar">
+        <div class="divTimeSetterContainer">
+            <div class="timeValueBorder">
+                <!--<span id="">&nbsp;</span>-->
+                <input id="godzina" type="text" maxlength="2" size="1" placeholder="- -" class="timePart hours">
+                <span>:</span>
+                <input id="minuta" type="text" maxlength="2" size="1" placeholder="- -" class="timePart hours">
+                <span id="kasownik">x&nbsp;</span>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <input type="text" placeholder="pole 2">
+    <br>
+    <br>
+
+<hr>
+    <br>
+    <br>
+    <br>
+    <br>
+    <input id="poletekstowe123" type="text" placeholder=" tu EventListener-y">
+
+
+</center>
+
+
+<script>
+
+    document.getElementById("poletekstowe123").addEventListener("keypress",funkcja03);
+    document.getElementById("poletekstowe123").addEventListener("keyup",funkcja01);
+    document.getElementById("poletekstowe123").addEventListener("keydown",funkcja02);
+    document.getElementById("poletekstowe123").addEventListener("input",funkcja04);
+
+
+
+
+    function funkcja01() {
+        console.log("addEventListener(\"keyup\"     (4)");
+//        document.getElementById("poletekstowe123").value = "";
+    }
+
+
+
+    function funkcja02() {
+        console.log("addEventListener(\"keydown\"   (1)");
+        document.getElementById("poletekstowe123").value = "@";
+    }
+
+
+
+
+    function funkcja03() {
+        console.log("addEventListener(\"keypress\"  (2)");
+//        document.getElementById("poletekstowe123").value = "";
+    }
+
+
+
+
+    function funkcja04() {
+        console.log("addEventListener(\"input\"     (3)");
+//        document.getElementById("poletekstowe123").value = "";
+    }
+
+
+
+
+
+    //  ----------------------------------------------------------------------------------------------------------------
+
+    //<input id="godzina"
+    document.getElementById("godzina").addEventListener("keyup", wprowadzanieGodzina);
+    document.getElementById("godzina").addEventListener("focusout", focusoutGodzina);
+    document.getElementById("godzina").addEventListener("focus", focusGodzina);
+
+
+    //<input id="minuta"
+    document.getElementById("minuta").addEventListener("keyup", wprowadzanieMinuta);
+    document.getElementById("minuta").addEventListener("focusout", focusoutMinuta);
+    document.getElementById("minuta").addEventListener("focus", focusMinuta);
+
+
+    document.getElementById("kasownik").addEventListener("click", kasowanieZawartosci);
+
+
+    //  ----------------------------------------------------------------------------------------------------------------
+
+    function focusoutMinuta() {
+        if (document.getElementById("minuta").value > 59) {
+            document.getElementById("minuta").value = 59;
+        }
+        document.getElementById("minuta").style.backgroundColor = "";
+    }
+
+    function focusMinuta() {
+        document.getElementById("minuta").style.backgroundColor = "lightblue";
+    }
+
+    function focusGodzina() {
+        document.getElementById("godzina").style.backgroundColor = "lightblue";
+    }
+
+    function focusoutGodzina() {
+        document.getElementById("godzina").style.backgroundColor = "";
+    }
+
+
+    //  ----------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+    function wprowadzanieGodzina() {
+        console.log("wcisnięto klawisz key: " + event.key);
+        let poleGodzin = document.getElementById("godzina");
+
+
+        let key = event.key.toString();
+        let re = new RegExp(/[0-9]/);
+        if (key.match(re)) {
+            console.log(" jest zakres 0-9");
+
+
+            if (event.key === "ArrowUp") {
+                let tymczasowaZmienna = parseInt(poleGodzin.value) + 1;
+                if (tymczasowaZmienna < 10) {
+                    tymczasowaZmienna = "0" + tymczasowaZmienna;
+                }
+                if (tymczasowaZmienna > 23) {
+                    tymczasowaZmienna = "00";
+                }
+                if (poleGodzin.value === "") {
+                    tymczasowaZmienna = "00";
+                }
+                poleGodzin.value = tymczasowaZmienna;
+            }
+
+            else if (event.key === "ArrowDown") {
+                let tymczasowaZmienna = (poleGodzin.value) - 1;
+                if (tymczasowaZmienna < 10 && tymczasowaZmienna >= 0) {
+                    tymczasowaZmienna = "0" + tymczasowaZmienna;
+                }
+                if (tymczasowaZmienna === -1) {
+                    console.log("tymczasowaZmienna == -1   ");
+                    tymczasowaZmienna = 23;
+                }
+                if (poleGodzin.value === "") {
+                    console.log("tymczasowaZmienna == -1   ");
+                    tymczasowaZmienna = 23;
+                }
+                poleGodzin.value = tymczasowaZmienna;
+            }
+
+            else if (event.key === "ArrowRight") {
+                document.getElementById("minuta").focus();
+            }
+
+            else if (
+                ((poleGodzin.value === "00") || (poleGodzin.value === "01"))
+                &&
+                ((event.keyCode >= 48) && (event.keyCode <= 57) || (event.keyCode >= 96) && (event.keyCode <= 105))
+            ) {
+                let tymczasowaZmienna = poleGodzin.value.substring(1, 2);
+                poleGodzin.value = tymczasowaZmienna + event.key;
+                document.getElementById("minuta").focus();
+            }
+
+            else if (
+                (poleGodzin.value === "02")
+                &&
+                ((event.keyCode >= 48) && (event.keyCode <= 51) || (event.keyCode >= 96) && (event.keyCode <= 99))
+            ) {
+                let tymczasowaZmienna = poleGodzin.value.substring(1, 2);
+                poleGodzin.value = tymczasowaZmienna + event.key;
+                document.getElementById("minuta").focus();
+            }
+
+            else if (
+                (poleGodzin.value === "02")
+                &&
+                ((event.keyCode >= 52) && (event.keyCode <= 57) || (event.keyCode >= 100) && (event.keyCode <= 105))
+            ) {
+                poleGodzin.value = 23;
+                document.getElementById("minuta").focus();
+            }
+
+            else if ((event.keyCode >= 51) && (event.keyCode <= 57) || (event.keyCode >= 99) && (event.keyCode <= 105)) {
+                let tymczasowaZmienna = "0" + event.key;
+                poleGodzin.value = tymczasowaZmienna;
+                document.getElementById("minuta").focus();
+            }
+
+            else if ((event.keyCode >= 48) && (event.keyCode <= 50) || (event.keyCode >= 96) && (event.keyCode <= 98)) {
+                let tymczasowaZmienna = "0" + event.key;
+                poleGodzin.value = tymczasowaZmienna;
+            }
+
+            else {
+                if (poleGodzin.value.length === 1) {
+                    poleGodzin.value = "";
+                }
+            }
+       }
+       else {
+            console.log("nic ");
+        }
+    }
+
+    //  ----------------------------------------------------------------------------------------------------------------
+
+    function wprowadzanieMinuta() {
+        console.log("wcisnięto klawisz key: " + event.key);
+        console.log("wcisnięto klawisz keyCode: " + event.keyCode);
+        let poleMinut = document.getElementById("minuta");
+
+        if (event.key === "ArrowUp") {
+            let tymczasowaZmienna = parseInt(poleMinut.value) + 1;
+            if (tymczasowaZmienna < 10) {
+                tymczasowaZmienna = "0" + tymczasowaZmienna;
+            }
+            if (tymczasowaZmienna > 59) {
+                tymczasowaZmienna = "00";
+            }
+            if (poleMinut.value === "") {
+                tymczasowaZmienna = "00";
+            }
+            poleMinut.value = tymczasowaZmienna;
+        }
+        else if (event.key === "ArrowDown") {
+            let tymczasowaZmienna = parseInt(poleMinut.value) - 1;
+            if (tymczasowaZmienna < 10 && tymczasowaZmienna >= 0) {
+                tymczasowaZmienna = "0" + tymczasowaZmienna;
+            }
+            if (tymczasowaZmienna === -1) {
+                tymczasowaZmienna = 59;
+            }
+            if (poleMinut.value === "") {
+                tymczasowaZmienna = 59;
+            }
+            poleMinut.value = tymczasowaZmienna;
+        }
+
+        else if (event.key === "ArrowLeft") {
+            document.getElementById("godzina").focus();
+        }
+
+        else if ((event.keyCode >= 48) && (event.keyCode <= 57) || (event.keyCode >= 96) && (event.keyCode <= 105)) {
+            if (poleMinut.value.length === 1) {
+                let tymczasowaZmienna = "0" + event.key;
+                poleMinut.value = tymczasowaZmienna;
+            }
+            else {
+                let tymczasowaZmienna = poleMinut.value.substring(1, 2);
+                poleMinut.value = tymczasowaZmienna + event.key;
+            }
+        }
+        else {
+            if (poleMinut.value.length === 1) {
+                poleMinut.value = "";
+            }
+        }
+    }
+
+    //  --------------------------------------------------------------------------------------------------------------------
+
+    function kasowanieZawartosci() {
+        document.getElementById("godzina").value = "";
+        document.getElementById("minuta").value = "";
+    }
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+    <!--<link rel="stylesheet" href="index.css">-->
+
+    <style>
+
+    </style>
+
+
+</head>
+<body>
+<!--<body bgcolor="#d0ccc8">-->
+<body>
+<body bgcolor="#9d958d">
+<center>
+    <h1>walidacja godziny za pomocą wyrażenia regularnego</h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- --------------------------------------------------------------------------------------------------------------  -->
+    <hr>
+    <!-- --------------------------------------------------------------------------------------------------------------  -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <input id="godzina" type="" placeholder=" - - : - - ">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <br>
+    inne testy
+    <br>
+    <br>
+    <input id="testowepole" type="" placeholder="hh:mm ">
+    <br>
+
+
+    <!--<button onclick="goguzikminut()">zmiana focusu na okienko minut</button>-->
+    <!--<button onclick="goguzikgodzin()">zmiana focusu na okienko godzin</button>-->
+
+
+</center>
+
+
+<script>
+
+    //  ----------------------------------------------------------------------------------------------------------------
+    //  ----------------------------------------------------------------------------------------------------------------
+
+
+    //<input id="testowepole"
+    document.getElementById("testowepole").addEventListener("keyup", testowaFunkcja);
+     console.log("    e.keyCode()  " + this.value);
+
+    function testowaFunkcja() {
+        let regex = /([0-9])/;
+
+        if (event.key.match(regex)) {
+            console.log(" jest prawidłowy znak !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        }
+        else {
+            console.log(" jest nieprawidłowy znak #######");
+        }
+    }
+
+
+    //  ----------------------------------------------------------------------------------------------------------------
+
+
+
+        //<input id="godzina"
+        document.getElementById("godzina").addEventListener("input", inputGodzina);
+
+
+        function inputGodzina() {
+            let regex = /([0-1]?[0-9]|2[0-3]):[0-5][0-9]/g;
+
+
+            console.log("    function inputGodzina()  ");
+            console.log("    this.value  " + this.value);
+            // console.log("    e.keyCode()  " + this.keyCode());
+
+
+            // -  match ---
+//        if (this.value.match(regex)) {
+//            console.log(" jest prawidłowy znak !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//        }
+//        else {
+//            console.log(" jest nieprawidłowy znak #######");
+//        }
+
+
+            // -  match ---
+            if (regex.test(this.value)) {
+                console.log(" jest prawidłowy znak !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            }
+            else {
+                console.log(" jest nieprawidłowy znak #######");
+            }
+
+
+        }
+
+
+    //    document.getElementById("godzina").addEventListener("focusout", focusoutGodzina);
+    //    document.getElementById("godzina").addEventListener("focus", focusGodzina);
+
+
+    //  ----------------------------------------------------------------------------------------------------------------
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,260 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>testy kontrolki z up i down</title>
+    <!--<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">-->
+    <!--<link href="css/jquery.timesetter.css" rel="stylesheet">-->
+    <style>
+        body {
+            /*background-color: #fafafa;*/
+            font-family: 'Roboto';
+        }
+
+        h2 {
+            font-size: 120%;
+        }
+
+        .container {
+            margin: 150px auto;
+        }
+
+        /*@import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";*/
+        .divTimeSetterContainer {
+            margin: 5px;
+            float: left;
+            position: relative;
+        }
+
+        .divTimeSetterContainer .timeValueBorder {
+            float: left;
+            background-color: #ffffff;
+            border: 1px solid #1837be;
+            border-radius: 3px;
+            height: 30px;
+        }
+
+        .divTimeSetterContainer input.timePart {
+            float: left;
+            margin-top: 1px;
+            text-align: right;
+            height: 25px;
+            border: none;
+            font-size: 1.05em;
+            font-weight: bold;
+            border-radius: 3px;
+            padding: 0;
+            cursor: text;
+            outline: none;
+        }
+
+        .divTimeSetterContainer input.hours {
+            width: 30px;
+        }
+
+        .divTimeSetterContainer input.minutes {
+            width: 18px;
+        }
+
+        .divTimeSetterContainer span.hourSymbol,
+        .divTimeSetterContainer span.minuteSymbol {
+            float: left;
+            margin: 6px 2px 0 2px;
+            font-size: 0.9em;
+        }
+
+        .divTimeSetterContainer span.timeDelimiter {
+            float: left;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 2px 2px 0 2px;
+        }
+
+        .divTimeSetterContainer .postfix-position {
+            position: relative;
+            right: -3px;
+            top: 5px;
+            font-weight: bold;
+        }
+
+        .divTimeSetterContainer .button-time-control {
+            width: 20px;
+            float: left;
+            position: relative;
+            right: -2px;
+            top: -1px;
+            cursor: pointer;
+        }
+
+        .divTimeSetterContainer .button-time-control div.updownButton {
+            width: 20px;
+            float: left;
+            height: 15px;
+            border: 1px solid #02be27;
+            text-align: center;
+        }
+
+        .divTimeSetterContainer .button-time-control div.updownButton:first-child {
+            border-top-right-radius: 3px;
+            border-bottom: none;
+            /* to remove double line */
+        }
+
+        .divTimeSetterContainer .button-time-control div.updownButton:last-child {
+            border-bottom-right-radius: 3px;
+        }
+
+        .divTimeSetterContainer .button-time-control div.updownButton i {
+            font-weight: bold;
+            font-size: 0.7em;
+            top: -2px;
+        }
+
+        .divTimeSetterContainer .button-time-control div.updownButton:hover {
+            background-color: #be1318;
+        }
+
+
+    </style>
+    <style>@media print {
+        #ghostery-purple-box {
+            display: none !important
+        }
+    }</style>
+</head>
+<body bgcolor="#6C9B63">
+<center>
+
+<h1>
+   tu testy dla guzików up i down dla kontrolki
+</h1>
+<br>
+<br>
+<br>
+
+<div class="div22">
+    <div class="divTimeSetterContainer">
+        <div class="timeValueBorder">
+            <input id="txtHours" type="text" class="timePart hours" data-unit="hours" autocomplete="off">
+            <span class="hourSymbol">h</span>
+            <span class="timeDelimiter">:</span>
+            <input id="txtMinutes" type="text" class="timePart minutes" data-unit="minutes" autocomplete="off">
+            <span class="minuteSymbol">mins</span>
+            <div class="button-time-control">
+                <div id="btnUp1" type="button" data-direction="increment" class="updownButton">
+                    <i class="glyphicon glyphicon-triangle-top">@</i>
+                </div>
+                <div id="btnDown1" type="button" data-direction="decrement" class="updownButton">
+                    <i class="glyphicon glyphicon-triangle-bottom">#</i>
+                </div>
+            </div>
+        </div>
+        <!--<label class="postfix-position"></label></div>-->
+    </div>
+
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
+
+    <div class="div2">
+        <div class="divTimeSetterContainer">
+            <div class="timeValueBorder">
+                <!--<input id="txtHours" type="text" class="timePart hours" data-unit="hours" autocomplete="off">-->
+                <span class="hourSymbol">          hasfagadgadgadgadga          </span>
+                <!--<span class="timeDelimiter">:</span>-->
+                <!--<input id="txtMinutes" type="text" class="timePart minutes" data-unit="minutes" autocomplete="off">-->
+                <!--<span class="minuteSymbol">mins</span>-->
+                <div class="button-time-control">
+                    <div id="btnUp" type="button" data-direction="increment" class="updownButton">
+                        u
+                    </div>
+                    <div id="btnDown" type="button" data-direction="decrement" class="updownButton">
+                        d
+                    </div>
+                </div>
+            </div>
+            <!--<label class="postfix-position"></label></div>-->
+        </div>
+
+<br>
+<br>
+        <hr>
+        <br>
+        <br>
+
+        <div class="bar">
+            <div class="divTimeSetterContainer">
+                <div class="timeValueBorder">
+                    <!--<span id="">&nbsp;</span>-->
+                    <input id="godzina" type="text" maxlength="2" size="1" placeholder="- -" class="timePart hours">
+                    <span>:</span>
+                    <input id="minuta" type="text" maxlength="2" size="1" placeholder="- -" class="timePart hours">
+                    <span id="kasownik" style="display: none">r&nbsp;</span>
+                    <!--<span id="">v&nbsp;</span>-->
+                </div>
+            </div>
+        </div>
+
+<hr>
+<br>
+<br>
+<br>
+<br>
+
+        <div class="bar">
+            <div class="divTimeSetterContainer">
+                <div class="timeValueBorder">
+                    <!--<span id="">&nbsp;</span>-->
+                    <input id="godzina" type="text" maxlength="2" size="1" placeholder="- -" class="timePart hours">
+                    <span>:</span>
+                    <input id="minuta" type="text" maxlength="2" size="1" placeholder="- -" class="timePart hours">
+                    <span id="kasownik" style="display: none">r&nbsp;</span>
+                    <div class="button-time-control">
+                        <div id="btnUp" type="button" data-direction="increment" class="updownButton">
+                            u
+                        </div>
+                        <div id="btnDown" type="button" data-direction="decrement" class="updownButton">
+                            d
+                        </div>
+                    </div>
+                    <!--<span id="">v&nbsp;</span>-->
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+</center>
+</body>
+</html>
+
+
+<script>
+
+    document.getElementById("btnUp").addEventListener("click", buttonUp);
+    document.getElementById("btnDown").addEventListener("click", buttonDown);
+
+
+
+
+
+    function buttonUp() {
+        console.log(" function buttonUp()");
+    }
+
+
+    function buttonDown() {
+        console.log(" function buttonDown()");
+    }
+
+
+
+
+
+</script>

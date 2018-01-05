@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+
+
+<body>
+The following text field does not accept numeric input:
+<input type="text" onkeydown="return FilterInput (event)"/>
+<hr>
+
+drugie okienko nie działa (g)
+<br>
+<br>
+<br>
+<input id="godzina" type="text" size="10" placeholder="- -" class="timePart hours">
+
+<br>
+<br>
+<br>
+
+<input id="godzina" type="text" size="10" placeholder="wynik" class="timePart hours">
+
+
+<br>
+<br>
+<br>
+Try to check this box: <input type="checkbox" id="myCheckbox">
+
+<p>Toggling a checkbox is the default action of clicking on a checkbox. The preventDefault() method prevents this from
+    happening.</p>
+
+
+<script>
+
+    document.getElementById("myCheckbox").addEventListener("click", function (event) {
+        event.preventDefault()
+    });
+
+
+    document.getElementById("godzina").addEventListener("keydown", funkcja02);
+
+
+    function funkcja02() {
+//        console.log("addEventListener(\"keydown\"   (1)");
+//        document.getElementById("poletekstowe123").value = "@";
+
+        if ((event.keyCode >= 48) && (event.keyCode <= 57) || (event.keyCode >= 96) && (event.keyCode <= 105))
+        {
+            console.log("wcisnięto cyfrę  " );
+
+        }
+
+
+        else  {
+            console.log("event.preventDefault() " );
+            event.preventDefault();
+
+
+
+
+            console.log(event);
+            console.log("event: " + event);
+            console.log("event.keyCode: " + event.keyCode);
+            console.log("event.key: " + event.key);
+            console.log("event.code: " + event.code);
+
+            return event.code
+        }
+
+    }
+
+
+    function FilterInput(event) {
+        var keyCode = ('which' in event) ? event.which : event.keyCode;
+        isNumeric = (keyCode >= 48 && keyCode <= 57 ) ||
+            (keyCode >= 96 && keyCode <= 105 );
+        console.log(keyCode);
+        return !isNumeric
+    }
+
+
+</script>
+
+</body>
