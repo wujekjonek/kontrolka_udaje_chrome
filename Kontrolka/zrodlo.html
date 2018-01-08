@@ -29,7 +29,8 @@
             /*float: left;*/
             text-align: left;
             width: 82px;
-            background-color: #fff20c;
+            /*background-color: #fff20c;*/
+            background-color: white;
             /*background-color: red;*/
             /*border: 1px solid #ffffff;*/
             /*border-radius: 3px;*/
@@ -45,7 +46,8 @@
             text-align: center;
             height: 19px;
             border: none;
-            background-color: #3aa854;
+            /*background-color: #3aa854;*/
+            background-color: white;
             /*border: 1px solid #85ffba;*/
             /*font-size: 1.05em;*/
             /*font-weight: bold;*/
@@ -78,8 +80,20 @@
         }
 
         .divTimeSetterContainer .button-time-control div.updownButton:hover {
-            background-color: #be1318;
+            /*background-color: #be1318;*/
+            background-color: #a6a6a6;
         }
+
+
+        .divTimeSetterContainer .button-time-control div.updownButton:active {
+            /*background-color: #02be00;*/
+            background-color: #404040;
+            color: white;
+        }
+
+
+
+
 
         .divTimeSetterContainer .button-time-control div.updownButton {
 
@@ -88,7 +102,8 @@
             width: 15px;
             heigth: 9px;
             float: left;
-            background-color: #be8788;
+            /*background-color: #be8788;*/
+            background-color: #e6e6e6;
             /*height: 15px;*/
             /*border: 1px solid #02be27;*/
             text-align: center;
@@ -221,7 +236,8 @@
 
 
     <hr>
-
+    <br> <br> <br> <br>
+    <input type="text" placeholder="pole 3">
 
 </center>
 
@@ -243,8 +259,15 @@
 
 <script>
 
+    //przyciski up i down
     document.getElementById("btnUp").addEventListener("click", buttonUp);
     document.getElementById("btnDown").addEventListener("click", buttonDown);
+
+//    document.getElementById("btnUp").addEventListener("mousedown", buttonUponMouseDown);
+//    document.getElementById("btnUp").addEventListener("mouseup", buttonUponMouseUown);
+
+
+
 
 
     document.getElementById("kontrolka").addEventListener("mouseover", mouseOver);
@@ -274,66 +297,25 @@
 
 
 
+    function buttonUponMouseDown() {
+        console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+         document.getElementById("btnUp").style.backgroundColor = "lightblue";
+    }
 
+
+
+
+    function buttonUponMouseUown() {
+        console.log("######################################################################");
+
+        document.getElementById("btnUp").style.backgroundColor = "#be1318";
+
+    }
 
 
 
 
     //  ----------------------------------------------------------------------------------------------------------------
-
-
-
-
-//    function buttonUp() {
-//        console.log(" function buttonUp()");
-//        // todo tu kod z arrow up
-//        let poleGodzin = document.getElementById("godzina");
-//            let tymczasowaZmienna = parseInt(poleGodzin.value) + 1;
-//            if (tymczasowaZmienna < 10) {
-//                tymczasowaZmienna = "0" + tymczasowaZmienna;
-//            }
-//            if (tymczasowaZmienna > 23) {
-//                tymczasowaZmienna = "00";
-//            }
-//            if (poleGodzin.value === "") {
-//                tymczasowaZmienna = "00";
-//            }
-//            poleGodzin.value = tymczasowaZmienna;
-//            pokazIks();
-//    }
-
-
-
-
-
-
-
-
-//    function buttonDown() {
-//        console.log(" function buttonDown()");
-//        // todo tu kod z arrow down
-//        let poleGodzin = document.getElementById("godzina");
-//            let tymczasowaZmienna = parseInt(poleGodzin.value) - 1;
-//            if (tymczasowaZmienna < 10 && tymczasowaZmienna >= 0) {
-//                tymczasowaZmienna = "0" + tymczasowaZmienna;
-//            }
-//            if (tymczasowaZmienna === -1) {
-//                console.log("tymczasowaZmienna == -1   ");
-//                tymczasowaZmienna = 23;
-//            }
-//            if (poleGodzin.value === "") {
-//                console.log("tymczasowaZmienna == -1   ");
-//                tymczasowaZmienna = 23;
-//            }
-//            poleGodzin.value = tymczasowaZmienna;
-//            pokazIks();
-//
-//    }
-
-
-
-
-
 
 
 
@@ -341,6 +323,7 @@
 
 
     //    document.getElementById("id_001").addEventListener("keydown", wyrazeniaRegularne);
+
 
 
     function wyrazeniaRegularne() {
