@@ -267,6 +267,12 @@
 //    document.getElementById("btnUp").addEventListener("mouseup", buttonUponMouseUown);
 
 
+//    let input = document.createElement('input');
+//    input.setAttribute("time", "minut");
+//    input.addEventListener("mouseover", mouseOver);
+//    input = document.createElement('input');
+//    input.setAttribute("time", "godzina");
+//    input.addEventListener("mouseover", mouseOver);
 
 
 
@@ -277,7 +283,8 @@
     //<input id="godzina"
     document.getElementById("godzina").addEventListener("keyup", wprowadzanieGodzina);
     document.getElementById("godzina").addEventListener("focusout", focusoutGodzina);
-    document.getElementById("godzina").addEventListener("focus", focusGodzina);
+//    document.getElementById("godzina").addEventListener("focus", focusGodzina);
+    document.getElementById("godzina").addEventListener("focus", focusThis);
 
     document.getElementById("godzina").addEventListener("keydown", wpuszczajTylkoCyfry);
 
@@ -285,7 +292,8 @@
     //<input id="minuta"
     document.getElementById("minuta").addEventListener("keyup", wprowadzanieMinuta);
     document.getElementById("minuta").addEventListener("focusout", focusoutMinuta);
-    document.getElementById("minuta").addEventListener("focus", focusMinuta);
+    document.getElementById("minuta").addEventListener("focus", focusThis);
+//    document.getElementById("minuta").addEventListener("focus", focusMinuta);
 
     document.getElementById("minuta").addEventListener("keydown", wpuszczajTylkoCyfry);
 
