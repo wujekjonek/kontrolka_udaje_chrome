@@ -198,7 +198,7 @@
     <br>
     <br>
     <hr>
-    tu testy mojej kontrolki z klawiszami up i down.
+    <!--tu testy mojej kontrolki z klawiszami up i down.-->
     <br> <br>
     <!--<input id="id_001" type="text" maxlength="7" placeholder=" test regex">-->
 
@@ -206,8 +206,8 @@
     <!--<button onclick="iks()">button od iksa</button>-->
 
 
-    <hr>
-    <br>
+    <!--<hr>-->
+    <!--<br>-->
     tu dodamy przyciski
     <br> <br> <br>
 
@@ -283,8 +283,8 @@
     //<input id="godzina"
     document.getElementById("godzina").addEventListener("keyup", wprowadzanieGodzina);
     document.getElementById("godzina").addEventListener("focusout", focusoutGodzina);
-//    document.getElementById("godzina").addEventListener("focus", focusGodzina);
-    document.getElementById("godzina").addEventListener("focus", focusThis);
+    document.getElementById("godzina").addEventListener("focus", focusGodzina);
+//    document.getElementById("godzina").addEventListener("focus", focusThis);
 
     document.getElementById("godzina").addEventListener("keydown", wpuszczajTylkoCyfry);
 
@@ -292,8 +292,8 @@
     //<input id="minuta"
     document.getElementById("minuta").addEventListener("keyup", wprowadzanieMinuta);
     document.getElementById("minuta").addEventListener("focusout", focusoutMinuta);
-    document.getElementById("minuta").addEventListener("focus", focusThis);
-//    document.getElementById("minuta").addEventListener("focus", focusMinuta);
+//    document.getElementById("minuta").addEventListener("focus", focusThis);
+    document.getElementById("minuta").addEventListener("focus", focusMinuta);
 
     document.getElementById("minuta").addEventListener("keydown", wpuszczajTylkoCyfry);
 
